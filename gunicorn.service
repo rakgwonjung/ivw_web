@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/ivw/web/bo
+ExecStart=/ivw/web/bo/gunicorn \
+        --workers 3 \
+        --bind unix:/usr/local/bin/gunicorn \
+        bo.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+

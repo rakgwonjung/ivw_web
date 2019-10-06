@@ -5,13 +5,13 @@ MAINTAINER ivw
 # lib install
 RUN apt-get update
 RUN apt-get install -y nginx gcc g++ zlib1g-dev openssl libssl-dev \
-sqlite3 libsqlite3-dev wget tree make sudo vim git curl mysql-client
+sqlite3 libsqlite3-dev wget tree make sudo vim git curl mysql-client systemd
 
 # ENV
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # nginx port change(8080)
-RUN sed -i 's/80/8080/' /etc/nginx/sites-available/default
+RUN sed -i 's/80/8081/' /etc/nginx/sites-available/default
 
 # nginx link
 RUN ["ln", "-sf", "/etc/nginx/sites-available/default", "/etc/nginx/sites-enabled/default"]
@@ -50,6 +50,7 @@ RUN pip3 install django djangorestframework
 RUN pip3 install serializers
 RUN pip3 install gunicorn
 RUN pip3 install markdown
+RUN pip3 install django-suit
 #RUN pip3 install filter
 
 

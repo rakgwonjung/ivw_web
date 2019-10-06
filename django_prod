@@ -1,0 +1,15 @@
+server {
+        listen 80;
+        server_name 128.199.161.10;
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+
+        location /static/ {
+                root /ivw/web/bo;
+        }
+
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/ivw/web/run/gunicorn.sock;
+        }
+}
