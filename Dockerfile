@@ -59,6 +59,6 @@ RUN pip3 install markdown
 
 #COPY nginx-app.conf /etc/nginx/sites-available/default
 #COPY supervisor-app-staging.conf /etc/supervisor/conf.d/
-EXPOSE 8000
-EXPOSE 8080
+EXPOSE 8001
+EXPOSE 8081
 EXPOSE 433
