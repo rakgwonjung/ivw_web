@@ -5,7 +5,8 @@ MAINTAINER ivw
 # lib install
 RUN apt-get update
 RUN apt-get install -y nginx gcc g++ zlib1g-dev openssl libssl-dev \
-sqlite3 libsqlite3-dev wget tree make sudo vim git curl mysql-client systemd
+sqlite3 libsqlite3-dev wget tree make sudo vim git curl \
+libmysqlclient-dev python-mysqldb mysql-client systemd
 
 # ENV
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
@@ -51,6 +52,8 @@ RUN pip3 install serializers
 RUN pip3 install gunicorn
 RUN pip3 install markdown
 RUN pip3 install django-suit
+RUN pip3 install mysql-python
+RUN pip3 install mysqlclient
 #RUN pip3 install filter
 
 
